@@ -33,8 +33,9 @@ jobs:
       with:
         node-version: '10.x'
     - name: Build clasic games app
-      run: | 
-        - sh deploy.sh
+      run: echo "Hola"
+    - shell: bash
+      run: ./deploy.sh
   # Single deploy job since we're just deploying
   # deploy:
   #   environment:
