@@ -36,8 +36,11 @@ jobs:
       uses: actions/checkout@v3
     - name: Build clasic games app
       run: echo "Hola"
+      
     - shell: bash
-      run: ./deploy.sh
+      run: |
+        chmod +x deploy.sh
+        ./deploy.sh
   # Single deploy job since we're just deploying
   # deploy:
   #   environment:
