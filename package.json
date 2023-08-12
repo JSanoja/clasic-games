@@ -1,0 +1,23 @@
+{
+  "name": "clasic-games",
+  "version": "0.0.1",
+  "description": "Clasic game challenge",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "sh deploy.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JSanoja/clasic-games.git"
+  },
+  "author": "Juan Sanoja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JSanoja/clasic-games/issues"
+  },
+  "homepage": "https://github.com/JSanoja/clasic-games#readme",
+  "engines": {
+    "node": "14.12.0"
+  }
+}

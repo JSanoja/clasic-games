@@ -1,0 +1,9 @@
+#build
+public/
+client/dist/
+
+#dependencies
+node_modules
+
+#locks
+client/package-lock.json
