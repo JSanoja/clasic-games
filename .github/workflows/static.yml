@@ -34,7 +34,7 @@ jobs:
         node-version: '10.x'
     - name: Build clasic games app
       run: | 
-        "Hello World"
+        echo "Hello World"
         ls
   # Single deploy job since we're just deploying
   # deploy:
