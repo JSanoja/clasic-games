@@ -8,12 +8,11 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./leaderboard.component.scss']
 })
 export class LeaderboardComponent implements OnInit {
-  leaderBoard: Array<ILeaderBoard> = null
+  leaderBoard: Array<ILeaderBoard> = null;
   constructor(private storage: StorageService) { }
 
   ngOnInit(): void {
     this.leaderBoard = this.storage.getLeaderBoard();
-    console.log(this.leaderBoard)
   }
 
 

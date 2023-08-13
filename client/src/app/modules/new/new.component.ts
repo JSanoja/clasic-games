@@ -21,30 +21,28 @@ export class NewComponent implements OnInit {
   }
 
   getDifficulty(): Array<IDifficulty> {
-    return this.minesService.difficulty
+    return this.minesService.difficulty;
   }
 
-  setDifficulty(item : IDifficulty) : void {
+  setDifficulty(item: IDifficulty): void {
     this.minesService.setDifficulty(item);
-    this.router.navigateByUrl('board')
+    this.router.navigateByUrl('board');
   }
-  setCustomDifficulty() {
+  setCustomDifficulty(): void {
     this.minesService.setDifficulty({
-      name:"custom",
-      X: this.customForm.get("columns").value,
-      Y: this.customForm.get("rows").value,
-      mines: this.customForm.get("mines").value,
+      name: 'custom',
+      X: this.customForm.get('columns').value,
+      Y: this.customForm.get('rows').value,
+      mines: this.customForm.get('mines').value,
     });
-    this.router.navigateByUrl('board')
-    this.customForm.valid
-    this.customForm.touched;
+    this.router.navigateByUrl('board');
   }
   validMines(): ValidatorFn {
-    return (control:AbstractControl) : ValidationErrors | null => {
-      let cols = Number(control?.get("columns").value || 0)
-      let rows = Number(control?.get("rows").value || 0)
-      let mines = Number(control?.get("mines").value || 0)
-      return mines > (cols*rows) ? {"invalidMines": true} : null
-    }
+    return (control: AbstractControl): ValidationErrors | null => {
+      const cols = Number(control?.get('columns').value || 0);
+      const rows = Number(control?.get('rows').value || 0);
+      const mines = Number(control?.get('mines').value || 0);
+      return mines > (cols * rows) ? {invalidMines: true} : null;
+    };
   }
 }

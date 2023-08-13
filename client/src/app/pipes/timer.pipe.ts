@@ -14,7 +14,7 @@ export class TimerPipe implements PipeTransform {
     hours = hours % 24;
     return `${this.padTo2Digits(hours)}:${this.padTo2Digits(minutes)}:${this.padTo2Digits(seconds)}`;
   }
-  padTo2Digits(num:number) {
+  padTo2Digits(num: number): string {
     return num.toString().padStart(2, '0');
   }
 }

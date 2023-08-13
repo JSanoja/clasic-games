@@ -9,9 +9,9 @@ import { ItemModel, ItemModelInterface } from 'src/app/model/item';
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
-  @Input("item") item: ItemModel;
-  @Output("show") showEvent = new EventEmitter<boolean>();
-  @Output("flag") flagEvent = new EventEmitter();
+  @Input() item: ItemModel;
+  @Output() showEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() flagEvent: EventEmitter<boolean> = new EventEmitter();
   constructor() {
 
   }
@@ -20,8 +20,8 @@ export class ItemComponent implements OnInit {
   show(): void {
     this.showEvent.emit(true);
   }
-  onFlag(e: MouseEvent) {
-    this.flagEvent.emit()
+  onFlag(e: MouseEvent): boolean {
+    this.flagEvent.emit();
     return false;
   }
 }

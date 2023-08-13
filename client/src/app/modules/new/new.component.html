@@ -8,7 +8,7 @@
     The inputs are wrong. Please fixed or use a presset difficulty.
   </div>
   <form [formGroup]="customForm" >
-    <button class="difficulty-button" (click)="setCustomDifficulty()" [disabled]="!customForm.valid && customForm.touched">
+    <button class="difficulty-button" (click)="setCustomDifficulty()" [disabled]="!customForm.valid">
       Custom
     </button>
     <input class="difficulty-input" type="text" placeholder="Columns" formControlName="columns">

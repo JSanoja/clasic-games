@@ -7,7 +7,7 @@
 <div class="board">
   <ng-container *ngFor="let x of getBoard();">
     <ng-container *ngFor="let y of x;">
-      <jsan-item [item]="y" (show)="actionShow($event,y)" (flag)="actionFlag(y)"></jsan-item>
+      <jsan-item [item]="y" (showEvent)="actionShow($event,y)" (flagEvent)="actionFlag(y)"></jsan-item>
     </ng-container>
     <br>
   </ng-container>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { TimerPipe } from './timer.pipe';
 import { CommonModule } from '@angular/common';
 @NgModule({
@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   bootstrap: []
 })
 export class PipesModule {
-  static forRoot() {
+  static forRoot(): ModuleWithProviders<PipesModule> {
     return {
         ngModule: PipesModule,
         providers: [],

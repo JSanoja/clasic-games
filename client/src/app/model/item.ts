@@ -1,27 +1,27 @@
 export class ItemModel {
-  mine:boolean;
-  num:number;
-  visible:boolean = false;
-  flag:boolean = false;
-  disabled: boolean = false;
-  constructor(item:ItemModelInterface) {
+  mine: boolean;
+  num: number;
+  visible = false;
+  flag = false;
+  disabled = false;
+  constructor(item: ItemModelInterface) {
     this.mine = item.mine;
     this.num = item.num;
   }
-  setMine (mine : boolean) {
+  setMine(mine: boolean): void {
     this.mine = mine;
   }
-  getMine() {
+  getMine(): boolean {
     return this.mine;
   }
-  setNum (num : number) {
+  setNum(num: number): void {
     this.num = num;
   }
-  getNum() {
+  getNum(): number {
     return this.num;
   }
 }
 export interface ItemModelInterface{
-  mine:boolean;
-  num:number;
+  mine: boolean;
+  num: number;
 }

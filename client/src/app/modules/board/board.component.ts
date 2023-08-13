@@ -11,12 +11,12 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class BoardComponent implements OnInit {
   board: any;
-  timer:Date;
-  timerToConvert:number = 0;
-  lastTimer:number = 0;
-  score:number = 0;
-  gameFinished:boolean = false;
-  constructor(private minesService: MinesweepService, private storage : StorageService) { }
+  timer: Date;
+  timerToConvert = 0;
+  lastTimer = 0;
+  score = 0;
+  gameFinished = false;
+  constructor(private minesService: MinesweepService, private storage: StorageService) { }
   ngOnInit(): void {
     this.score = this.minesService.mines - this.minesService.flags;
     this.minesService.boardChange$.subscribe(() => {
@@ -25,41 +25,41 @@ export class BoardComponent implements OnInit {
         this.lastTimer = this.timerToConvert;
         this.minesService.disableButtons();
         this.gameFinished = true;
-        let record : ILeaderBoard = {
-          name: "JM",
+        const record: ILeaderBoard = {
+          name: 'JM',
           startTime: this.timer,
           endTime: new Date(this.lastTimer),
           totalTimeSpent: this.timerToConvert,
           status: this.minesService.status,
           difficulty: this.minesService.currentDifficulty
-        }
+        };
         this.storage.addGame(record);
       }
-    })
-    this.setTimer()
+    });
+    this.setTimer();
   }
   setTimer(): void {
     this.timer = new Date(Date.now());
     setInterval(() => {
       this.timerToConvert = Date.now() - this.timer.getTime();
-    }, 500)
+    }, 500);
   }
-  getBoard(): any {
-    return this.minesService.getBoard()
+  getBoard(): Array<Array<ItemModel>> {
+    return this.minesService.getBoard();
   }
-  actionShow(e:boolean, y:ItemModel) {
+  actionShow(e: boolean, y: ItemModel): void {
     y.visible = e;
     y.flag = false;
     this.minesService.boardChange$.next();
   }
-  actionFlag(y:ItemModel) {
+  actionFlag(y: ItemModel): void {
     y.flag = !y.flag;
-    if (y.flag) this.minesService.flags++;
-    if (!y.flag) this.minesService.flags--;
+    if (y.flag) { this.minesService.flags++; }
+    if (!y.flag) { this.minesService.flags--; }
     this.score = this.minesService.mines - this.minesService.flags;
   }
-  getStatus() {
-    return this.minesService.status
+  getStatus(): string {
+    return this.minesService.status;
   }
 
 }
