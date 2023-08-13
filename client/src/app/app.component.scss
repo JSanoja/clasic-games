@@ -1,0 +1,16 @@
+:host {
+  header.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  footer.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .content {
+    padding-top: 180px;
+  }
+}

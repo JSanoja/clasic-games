@@ -1,0 +1,21 @@
+<div class="nav">
+  <a class="new-game" routerLink="/new">New Game</a> - <a class="leaderboard" routerLink="/leaderboard">Leaderboard</a>
+</div>
+<div class="timer" *ngIf="!gameFinished">
+  {{ timerToConvert | timerPipe }} -- SCORE {{score}}
+</div>
+<div class="board">
+  <ng-container *ngFor="let x of getBoard();">
+    <ng-container *ngFor="let y of x;">
+      <jsan-item [item]="y" (show)="actionShow($event,y)" (flag)="actionFlag(y)"></jsan-item>
+    </ng-container>
+    <br>
+  </ng-container>
+</div>
+
+<div class="game-finished" *ngIf="gameFinished">
+  The game has finished you {{getStatus() == 'won' ? "WON" : "LOSE"}}
+  <br>
+  {{ lastTimer | timerPipe }}
+  <a class="new-game" routerLink="/new">New Game</a>
+</div>

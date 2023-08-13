@@ -1,0 +1,80 @@
+:host {
+  text-align: center;
+  .difficulty-button {
+    background: #7C7C7C;
+    border-bottom: 3px inset rgba(0,0,0,.5);
+    border-left: 3px inset rgba(0,0,0,.5);
+    border-right: 3px inset rgba(255,255,255,.5);
+    border-top: 3px inset rgba(255,255,255,.5);
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.5rem;
+    margin: 1rem;
+    min-width: 200px;
+    padding: .5rem;
+    text-transform: uppercase;
+    width: auto;
+    vertical-align: middle;
+    &:focus,
+    &:hover {
+      background: #BCBCBC;
+    }
+  }
+
+  .difficulty-button.hard {
+    background: #881400;
+
+    &:focus,
+    &:hover {
+      background: #A81000;
+    }
+  }
+
+  .difficulty-button.easy {
+    background: #005800;
+
+    &:focus,
+    &:hover {
+      background: #006800;
+    }
+  }
+
+  .difficulty-button.normal {
+    background: #0000BC;
+    &:focus,
+    &:hover {
+      background: #0000FC;
+    }
+  }
+  form.ng-invalid:not(.ng-untouched) {
+    .difficulty-input {
+      border-color: red;
+    }
+  }
+  .difficulty-input {
+    width: 105px;
+    height: 50px;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 1rem;
+    padding: 0.5rem;
+    font-size: 20px;
+    &.ng-invalid:not(.ng-untouched) {
+      border-color: red;
+    }
+  }
+  .custom {
+    position: relative;
+    .error-message {
+      color: red;
+      font-size: 20px;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      left: 0;
+      top: 80px;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<div class="difficulty">
+  <button *ngFor="let item of getDifficulty()" class="difficulty-button {{item.name}}" (click)="setDifficulty(item)">
+    {{item.name}}
+  </button>
+</div>
+<div class="custom">
+  <div class="error-message" *ngIf="!customForm.valid && customForm.touched">
+    The inputs are wrong. Please fixed or use a presset difficulty.
+  </div>
+  <form [formGroup]="customForm" >
+    <button class="difficulty-button" (click)="setCustomDifficulty()" [disabled]="!customForm.valid && customForm.touched">
+      Custom
+    </button>
+    <input class="difficulty-input" type="text" placeholder="Columns" formControlName="columns">
+    <input class="difficulty-input" type="text" placeholder="Rows" formControlName="rows">
+    <input class="difficulty-input" type="text" placeholder="Mines" formControlName="mines">
+  </form>
+
+</div>
+

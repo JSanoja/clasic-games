@@ -1,0 +1,15 @@
+:host {
+  .table {
+    border: 2px solid #949451;
+    padding: 10px;
+    font-size: 21px;
+    .table-header {
+      text-decoration: underline;
+    }
+    .row {
+      padding-bottom: 10px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+  }
+}
