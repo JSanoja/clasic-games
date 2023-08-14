@@ -16,11 +16,11 @@ export class StorageService {
   getLeaderBoard(): Array<ILeaderBoard> {
     const leaderBoard = JSON.parse(localStorage.getItem('leaderBoard')) as Array<ILeaderBoard>;
     if (leaderBoard && leaderBoard.length > 0) {
-      leaderBoard.sort((a, b) => (a.totalTimeSpent - b.totalTimeSpent)).sort((a, b) => {
+      leaderBoard.sort((a, b) => {
         const difficultyA = this.dictionary[a.difficulty];
         const difficultyB = this.dictionary[b.difficulty];
         return difficultyA - difficultyB;
-      });
+      }).sort((a, b) => (a.totalTimeSpent - b.totalTimeSpent));
     }
     return leaderBoard;
   }

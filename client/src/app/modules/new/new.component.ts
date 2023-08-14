@@ -43,7 +43,7 @@ export class NewComponent implements OnInit {
       const cols = Number(control?.get('columns').value || 0);
       const rows = Number(control?.get('rows').value || 0);
       const mines = Number(control?.get('mines').value || 0);
-      return mines > (cols * rows) ? {invalidMines: true} : null;
+      return mines >= (cols * rows) ? {invalidMines: true} : null;
     };
   }
   loadBoard(): void {
