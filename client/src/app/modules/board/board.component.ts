@@ -21,6 +21,7 @@ export class BoardComponent implements OnInit {
     this.score = this.minesService.mines - this.minesService.flags;
     this.minesService.boardChange$.subscribe(() => {
       this.minesService.updateZeros();
+      this.score = this.minesService.mines - this.minesService.flags;
       if (!this.minesService.validate()) {
         this.lastTimer = this.timerToConvert;
         this.minesService.disableButtons();
@@ -53,10 +54,12 @@ export class BoardComponent implements OnInit {
     this.minesService.boardChange$.next();
   }
   actionFlag(y: ItemModel): void {
-    y.flag = !y.flag;
-    if (y.flag) { this.minesService.flags++; }
-    if (!y.flag) { this.minesService.flags--; }
-    this.score = this.minesService.mines - this.minesService.flags;
+    if (!(this.gameFinished || this.minesService.flags === this.minesService.mines) || y.flag) {
+      y.flag = !y.flag;
+      if (y.flag) { this.minesService.flags++; }
+      if (!y.flag) { this.minesService.flags--; }
+      this.score = this.minesService.mines - this.minesService.flags;
+    }
   }
   getStatus(): string {
     return this.minesService.status;
