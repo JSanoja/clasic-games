@@ -1,0 +1,46 @@
+:host {
+  button, .item {
+    height: 25px;
+    width: 25px;
+    padding: 2px;
+    color: black;
+    border: 2px solid;
+    background-color: #efefef;
+    display: inline-block;
+    text-align: center;
+    font-size: 17px;
+    vertical-align: middle;
+    margin: 2px;
+    font-weight: bold;
+  }
+  button {
+    background-color: #e0f55c;
+  }
+  .item {
+    border-color: black;
+    &.mine {
+      background-color: red;
+    }
+    &-1 {
+      color : #23234B;
+    }
+    &-2 {
+      color : #06cfce;
+    }
+    &-3 {
+      color : #292a50;
+    }
+    &-4 {
+      color : #888a12;
+    }
+    &-5 {
+      color : #285b77;
+    }
+    &-6 {
+      color : #1a441d;
+    }
+    &-7 {
+      color : #8d155e;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<span (contextmenu)="onFlag($event)">
+  <button (click)="show()"  *ngIf="!item.visible" [disabled]="item.disabled || item.flag">
+    {{item.flag ? "⚑" : ""}}
+  </button>
+  <span class="item item-{{item.getNum()}} {{item.getMine() && 'mine'}}" *ngIf="item.visible">
+    {{ item.getMine() ? "*" :item.getNum() == -1 ? "" : item.getNum() }}
+  </span>
+</span>
+
