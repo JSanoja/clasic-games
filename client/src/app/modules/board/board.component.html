@@ -1,6 +1,3 @@
-<div class="nav">
-  <a class="new-game" routerLink="/new">New Game</a> - <a class="leaderboard" routerLink="/leaderboard">Leaderboard</a>
-</div>
 <div class="timer" *ngIf="!gameFinished">
   {{ timerToConvert | timerPipe }} -- SCORE {{score}}
 </div>
@@ -12,10 +9,12 @@
     <br>
   </ng-container>
 </div>
-
-<div class="game-finished" *ngIf="gameFinished">
-  The game has finished you {{getStatus() == 'won' ? "WON" : "LOSE"}}
-  <br>
-  {{ lastTimer | timerPipe }}
-  <a class="new-game" routerLink="/new">New Game</a>
+<div class="game-finished">
+  <a *ngIf="!gameFinished" routerLink="/new" class="save-game" (click)="saveGame()">Save Game</a>
+  <span *ngIf="gameFinished">
+    The game has finished you {{getStatus() == 'won' ? "WON" : "LOSE"}}
+    <br>
+    {{ lastTimer | timerPipe }}
+    <a class="new-game" routerLink="/new">New Game</a>
+  </span>
 </div>

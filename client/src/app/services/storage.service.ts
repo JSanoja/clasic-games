@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ILeaderBoard } from '../model/leader-board';
+import { ItemModel } from '../model/item';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,12 @@ export class StorageService {
     const leaderBoard = this.getLeaderBoard() || [];
     leaderBoard.push(record);
     this.setLeaderBoard(leaderBoard);
+  }
+  saveBoard(record: Array<Array<ItemModel>>): void {
+    localStorage.setItem('board', JSON.stringify(record));
+  }
+  getSaveBoard(): Array<Array<ItemModel>> {
+    const board = JSON.parse(localStorage.getItem('board')) as Array<Array<ItemModel>>;
+    return board;
   }
 }

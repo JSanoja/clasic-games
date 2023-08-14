@@ -80,6 +80,24 @@ export class MinesweepService {
   getBoard(): Array<Array<ItemModel>> {
     return this.board;
   }
+  loadBoard(board: Array<Array<ItemModel>>): void {
+    this.board = [];
+    this.X = board.length;
+    this.Y = board[0].length;
+    this.mines = 0;
+    this.currentDifficulty = 'load';
+    for (let i = 0; i < board.length; i++) {
+      this.board.push([]);
+      for (let j = 0; j < board[i].length; j++) {
+        if (board[i][j].mine) { this.mines++; }
+        this.board[i].push(new ItemModel({ num: board[i][j].num, mine: board[i][j].mine}));
+        this.board[i][j].disabled = board[i][j].disabled;
+        this.board[i][j].flag = board[i][j].flag;
+        this.board[i][j].visible = board[i][j].visible;
+      }
+    }
+    console.log(this.board);
+  }
   updateZeros(): void {
     for (let i = 0; i < this.X; i++) {
       for (let j = 0; j < this.Y; j++) {

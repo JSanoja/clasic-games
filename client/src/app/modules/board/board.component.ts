@@ -64,5 +64,8 @@ export class BoardComponent implements OnInit {
   getStatus(): string {
     return this.minesService.status;
   }
+  saveGame(): void {
+    this.storage.saveBoard(this.getBoard());
+  }
 
 }
