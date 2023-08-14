@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, Valid
 import { Router } from '@angular/router';
 import { IDifficulty } from 'src/app/model/difficulty';
 import { MinesweepService } from 'src/app/services/minesweep.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'jsan-new',
@@ -15,7 +16,7 @@ export class NewComponent implements OnInit {
     rows: new FormControl('', Validators.required),
     mines: new FormControl('', Validators.required),
   }, this.validMines());
-  constructor(private minesService: MinesweepService, private router: Router) { }
+  constructor(private minesService: MinesweepService, private router: Router, private storage: StorageService) { }
 
   ngOnInit(): void {
   }
@@ -44,5 +45,12 @@ export class NewComponent implements OnInit {
       const mines = Number(control?.get('mines').value || 0);
       return mines > (cols * rows) ? {invalidMines: true} : null;
     };
+  }
+  loadBoard(): void {
+    if (this.storage.getSaveBoard()) {
+      this.minesService.loadBoard(this.storage.getSaveBoard());
+      this.minesService.boardChange$.next();
+      this.router.navigateByUrl('board');
+    }
   }
 }

@@ -2,6 +2,9 @@
   <button *ngFor="let item of getDifficulty()" class="difficulty-button {{item.name}}" (click)="setDifficulty(item)">
     {{item.name}}
   </button>
+  <button class="difficulty-button" (click)="loadBoard()">
+    LOAD
+  </button>
 </div>
 <div class="custom">
   <div class="error-message" *ngIf="!customForm.valid && customForm.touched">
