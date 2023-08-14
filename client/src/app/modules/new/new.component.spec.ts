@@ -24,6 +24,7 @@ describe('NewComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(NewComponent);
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 

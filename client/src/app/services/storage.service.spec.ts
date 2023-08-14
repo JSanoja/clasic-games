@@ -15,7 +15,7 @@ describe('StorageService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('#getLeaderBoard to be Array', () => {
+  it('#getLeaderBoard to be Array<ILeaderBoard>', () => {
     expect(service.getLeaderBoard()).toEqual([]);
   });
 

@@ -102,7 +102,7 @@ export class MinesweepService {
     for (let i = 0; i < this.X; i++) {
       for (let j = 0; j < this.Y; j++) {
         if (this.board[i][j].visible && this.board[i][j].flag) {
-          this.board[i][j].flag = false
+          this.board[i][j].flag = false;
           this.flags--;
         }
         if (!this.board[i][j].getMine() && this.board[i][j].getNum() === 0 && this.board[i][j].visible) { return true; }

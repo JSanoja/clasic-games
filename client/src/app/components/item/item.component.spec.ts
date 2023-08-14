@@ -6,17 +6,17 @@ import { ItemModel } from 'src/app/model/item';
 
 describe('ItemComponent', () => {
   let component: ItemComponent;
-  let fixture: ComponentFixture<TestComponentWrapper>;
+  let fixture: ComponentFixture<TestComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ItemComponent, TestComponentWrapper ]
+      declarations: [ ItemComponent, TestComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TestComponentWrapper);
+    fixture = TestBed.createComponent(TestComponent);
     component = fixture.debugElement.children[0].componentInstance;
     fixture.detectChanges();
   });
@@ -27,9 +27,9 @@ describe('ItemComponent', () => {
 });
 
 @Component({
-  selector: 'test-component-wrapper',
+  selector: 'jsan-test-component-wrapper',
   template: '<jsan-item [item]="item"></jsan-item>'
 })
-class TestComponentWrapper {
-  item = new ItemModel({mine:true, num:0})
+class TestComponent {
+  item = new ItemModel({mine: true, num: 0});
 }
